@@ -1,0 +1,55 @@
+<%- include('includes/header.ejs') %>
+
+<div class="body">
+
+
+    <div class="crud">
+        <h2>CRUD OPERATIONS</h2>
+
+        <div class="add-item">
+            <form action="/add-item" method="POST">
+                <label>Name </label><input type="text" name="name" required>
+                <label>Sport </label><input type="text" name="sport" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="database">
+
+        <h2>DATABASE</h2>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>_id</th>
+                    <th>NAME</th>
+                    <th>SPORT</th>
+                    <th>DELETE</th>
+                    <th>ADJUST</th>
+                </tr>
+
+        <% items.map(item => { %>
+
+                <tr>
+                    <td class="id"><%= item._id %></td>
+                    <td class="name"><%= item.name %></td>
+                    <td class="sport"><%= item.sport %></td>
+                    <td class="delete">X</td>
+                    <td class="adjust">A</td>
+                </tr>
+
+           <% }).join('') %>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+
+</div>
+
+<%- include('includes/footer.ejs') %>
